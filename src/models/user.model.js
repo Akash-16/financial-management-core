@@ -1,18 +1,18 @@
 const mongoose = require("mongoose");
 
-const UserSchema = mongoose.Schema(
+const User = new mongoose.Schema(
   {
     uid: {
       type: String,
       required: true,
       unique: true,
     },
-    firstname: {
+    firstName: {
       type: String,
       required: true,
       default: null,
     },
-    lastname: {
+    lastName: {
       type: String,
       required: true,
       default: null,
@@ -20,6 +20,7 @@ const UserSchema = mongoose.Schema(
     email: {
       type: String,
       required: true,
+      unique: true,
       default: null,
     },
     gender: {
@@ -41,6 +42,14 @@ const UserSchema = mongoose.Schema(
       type: String,
       default: false,
     },
+    profilePic: {
+      type: String,
+      default: null,
+    },
+    salary: {
+      type: String,
+      default: null,
+    },
     roles: {
       type: String,
       default: "owner",
@@ -51,4 +60,4 @@ const UserSchema = mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("User", UserSchema);
+module.exports = mongoose.model("User", User);
