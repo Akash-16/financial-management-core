@@ -50,6 +50,10 @@ const User = new mongoose.Schema(
       type: String,
       default: null,
     },
+    isNotification: {
+      type: Boolean,
+      default: false,
+    },
     roles: {
       type: String,
       default: "owner",

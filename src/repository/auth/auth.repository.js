@@ -12,6 +12,12 @@ class AuthRepository {
   async loginUser() {
     console.log("loggin user");
   }
+
+  async findUserByEmail(email) {
+    return this.model.findOne({
+      email: email,
+    });
+  }
 }
 
 module.exports = new AuthRepository();

@@ -17,3 +17,13 @@ exports.createUserValidation = [
     .withMessage("Date of birth is required"),
   body("password").exists().notEmpty().withMessage("Password is required"),
 ];
+
+exports.loginValidation = [
+  body("email")
+    .exists()
+    .notEmpty()
+    .withMessage("Email is required")
+    .isEmail()
+    .withMessage("Enter the valid email"),
+  body("password").exists().notEmpty().withMessage("Password is required"),
+];

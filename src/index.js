@@ -3,6 +3,7 @@ const dotEnv = require("dotenv");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const commonRoutes = require("../src/routers/index");
+const { errorHandler } = require("./common/errorHandler");
 
 dotEnv.config();
 const app = express();
@@ -19,4 +20,5 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use("/api", commonRoutes);
+app.use(errorHandler);
 app.listen(port, () => console.log("server is running"));
